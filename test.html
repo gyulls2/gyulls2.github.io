@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- 외부 CSS -->
+    <link rel="stylesheet" href="./test.css" />
+    <link rel="shortcut icon" href="#" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="bookInfoModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <!-- <div class="modal-header"> -->
+          <!-- <h5 class="modal-title" id="bookInfoModalLabel">책제목 넣기</h5> -->
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+          <!-- </div> -->
+          <div class="modal-body">
+            <div><img src="" alt="" id="modalThumbnail" /></div>
+            <div id="modalTitle"></div>
+            <div id="modalAuthors"></div>
+            <div id="modalContents"></div>
+            <div id="modalDate"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1>책 검색 test</h1>
+    <input
+      id="bookName"
+      type="text"
+      value=""
+      onkeydown="if (event.keyCode == 13) search();"
+    />
+    <button id="search" onclick="search()">검색</button>
+
+    <p id="title"></p>
+    <img src="" alt="" id="thumbnail" />
+
+    <!-- 코멘트 등록 폼 -->
+    <form id="commentForm" method="POST" style="display: none">
+      <input
+        id="comment"
+        name="comment"
+        type="text"
+        value=""
+        onkeydown="if (event.keyCode == 13) saveComment();"
+      />
+      <button id="commentSaveBt" onclick="saveComment()">코멘트 등록</button>
+    </form>
+
+    <!-- 책갈피 div -->
+    <div id="container"></div>
+
+    <script src="./test.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

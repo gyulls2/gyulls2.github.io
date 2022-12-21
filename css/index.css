@@ -1,0 +1,475 @@
+@font-face {
+  font-family: "SunBatang-Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/SunBatang-Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.modal-body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.modal-body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #f0e4d8;
+  font-family: "SunBatang-Light";
+}
+
+#wrapper {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  /* display: flex; */
+  position: relative;
+}
+
+/* modal */
+.modal {
+  width: 600px;
+  height: 450px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  background: #fff;
+  border-radius: 30px;
+  display: none;
+  padding: 10px 30px 40px 30px;
+  overflow: hidden;
+}
+
+.modal_bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+  display: none;
+}
+
+.close {
+  display: inline-block;
+  *display: inline;
+  cursor: pointer;
+}
+.close::after {
+  display: inline-block;
+  content: "\00d7";
+  font-size: 25pt;
+  color: #aaa;
+}
+.close:hover::after {
+  color: #111;
+  transition: 0.3s;
+}
+
+.modal-body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /* background-color: #2F4842; */
+  top: -10px;
+}
+
+#modalThumbnail {
+  float: left;
+  width: 35%;
+  border-radius: 10px;
+  transform: translateY(5%);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 10px;
+}
+
+#modalInfo {
+  float: right;
+  width: 60%;
+  font-size: 14px;
+}
+
+#modalTitle {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#modalDate {
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  color: #aaa;
+}
+
+/* 왼쪽 검색 섹션 */
+#section_left {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#wrap {
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainTitle {
+  opacity: 0;
+  margin-bottom: 50px;
+  /* transition: 5s; */
+}
+
+#title {
+  font-size: 15px;
+  margin-top: 20px;
+}
+#author {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: -10px;
+  margin-bottom: 0;
+}
+
+#commentForm {
+  display: block;
+  width: 300px;
+}
+
+#comment {
+  resize: none;
+  background: inherit;
+  border-radius: 10px;
+  border: 1px solid #bca888;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  width: 80%;
+  font-size: 14px;
+}
+
+#commentSaveBt {
+  width: 60px;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background: #bca888;
+  border: none;
+  color: #fff;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.sort {
+  cursor: pointer;
+}
+
+/* search bar */
+.input-container {
+  width: 300px;
+  margin: 15px 0;
+  position: relative;
+  z-index: 20;
+}
+
+input[type="text"] {
+  font-size: 14px;
+  color: #111;
+  width: 70%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  background-color: inherit;
+  border: 1px solid #bca888;
+  border-radius: 10px;
+  padding: 5px 0 5px 30px;
+}
+
+.input-container::before {
+  background: url("../images/search.png") no-repeat;
+  background-size: 17px;
+  content: "";
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  margin: 8px 10px;
+}
+
+.searchResult img {
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 10px;
+}
+
+/* 오른쪽 책갈피 섹션 */
+#section_right {
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+#container {
+  width: 100%;
+  padding: 30px;
+}
+
+.bookMark {
+  width: 180px;
+  background: #2f4842;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.commentBox {
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+.titleBox {
+  font-size: 10px;
+  /* margin-bottom: 10px; */
+}
+
+.searchSort {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding-top: 10px;
+}
+
+/* 검색 */
+
+.form {
+  position: fixed;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+
+.form input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.fa {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #bca888;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+.form:hover,
+.form:valid {
+  width: 200px;
+  cursor: pointer;
+}
+
+.form:hover input,
+.form:valid input {
+  display: block;
+}
+
+.form:hover .fa,
+.form:valid .fa {
+  background: #bca888;
+  color: white;
+}
+
+.form a {
+  display: none;
+  position: relative;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+  text-align: right;
+}
+
+.form:valid a {
+  display: block;
+}
+
+/* 모바일용 css */
+@media all and (max-width: 768px) {
+  html,
+  body {
+    background-color: #fff;
+  }
+
+  #wrapper {
+    width: 100%;
+  }
+
+  .modal {
+    width: 70%;
+    min-height: 450px;
+    height: 650px;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .modal-body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #modalThumbnail {
+    float: none;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    transform: translateY(0);
+  }
+
+  #modalInfo {
+    float: none;
+    width: 100%;
+    font-size: 14px;
+    position: relative;
+  }
+
+  #modalTitle {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #modalDate {
+    position: static;
+    margin: 20px 0;
+    text-align: right;
+  }
+
+  .close {
+    position: relative;
+    top: -10px;
+  }
+
+  #section_left {
+    width: 100%;
+    height: 180px;
+    background: #f0e4d8;
+    position: relative;
+    display: block;
+    position: fixed;
+    padding: 50px;
+    z-index: 99;
+  }
+
+  #section_right {
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    margin-top: 180px;
+  }
+
+  .searchResult {
+    display: none;
+    position: absolute;
+    width: 45%;
+    margin-top: 55px;
+    padding: 0 10px;
+    text-align: center;
+    margin-left: -30px;
+  }
+
+  #commentForm {
+    display: none;
+    position: absolute;
+    width: 45%;
+    left: 50%;
+    margin-top: 5px;
+  }
+
+  #commentSaveBt {
+    float: right;
+    margin-right: 20%;
+  }
+
+  .mainTitle {
+    margin-bottom: 25px;
+    transition: 5s;
+  }
+
+  input[type="text"] {
+    width: 380px;
+  }
+
+  #container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .searchSort {
+    position: fixed;
+    top: 180px;
+    right: -10px;
+    padding-top: 10px;
+    z-index: 20;
+  }
+
+  /* .form{
+    position: fixed;
+    bottom: 0;
+    top: 700px;
+    right: 10px;
+    z-index: 50;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  } */
+}
