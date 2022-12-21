@@ -1,5 +1,4 @@
 const REST_API_KEY = config.apikey;
-// const REST_API_KEY = "8ff342306e1b7d862d5f75fbc30bb978";
 let bookInfo = {};
 
 // 도서정보 get으로 읽어와서 책갈피 div 생성
